@@ -186,7 +186,8 @@ function opendatabase() {
       `
       const buttonadddatabase = document.getElementById("buttonadddatabase")
       if (selfprofile["rank"] == 'foorvos'){
-      buttonadddatabase.addEventListener("click", openadddata)
+        console.log("asd")
+        buttonadddatabase.addEventListener("click", openadddata)
       }
       })
   })
