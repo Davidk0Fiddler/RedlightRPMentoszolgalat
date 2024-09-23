@@ -13,7 +13,7 @@ const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 
-let isLoggedIn = false
+let isLoggedIn = true
 let container = document.getElementById('container');
 
 function loginregisterPage() {
@@ -38,21 +38,57 @@ loginregisterPage()
 function landingPage() {
   container.innerHTML = ` `
   container.innerHTML += ` 
-    <h1> Hello! ${selfprofile["username"]} </h1>  
-  `
+    <h1 style="text-align: center"> Üdvözlünk ${selfprofile["username"]}!</h1>  
+    <div id="landingpage">
+      <div class="card">
+        <div class="imgBx">
+          <img src="https://images.pexels.com/photos/3861976/pexels-photo-3861976.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+        </div>
+        <div class="content">
+          <div class="contentBx">
+            <h3>Adatbázis</h3>
+          </div>
+
+        </div>
+      </div>
+      <div class="card">
+        <div class="imgBx">
+          <img src="https://images.pexels.com/photos/28541805/pexels-photo-28541805/free-photo-of-vintage-konyvtari-konyvespolc-tele-antik-konyvekkel.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+        </div>
+        <div class="content">
+          <div class="contentBx">
+            <h3>Dokumentáció</h3>
+          </div>
+
+        </div>
+      </div>
+      <div class="card">
+        <div class="imgBx">
+          <img src="https://images.pexels.com/photos/5561909/pexels-photo-5561909.jpeg?auto=compress&cs=tinysrgb&w=600">
+        </div>
+        <div class="content">
+          <div class="contentBx">
+            <h3>Információ</h3>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+    `
 }
 
 
 // LOGIN
 
 const selfprofile = {
-  username: "",
+  username: "a",
   password: "",
   phonenum: "",
   rank: "",
   group: ""
 };
 
+landingPage()
 
 const loginUserName = document.getElementById('login-username');
 const loginPassword = document.getElementById('login-password');
