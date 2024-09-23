@@ -184,9 +184,9 @@ function opendatabase() {
       </tr>
       `
       const buttonadddatabase = document.getElementById("buttonadddatabase")
-      if selfprofile["username"] == "Dr. Zsákos Bilbó" {
+      
       buttonadddatabase.addEventListener("click", openadddata)
-      }})
+      })
   })
   .catch((error) =>{
     alert("A táblázat feltöltése sikertelen: "+ error);
