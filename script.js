@@ -208,7 +208,7 @@ function openadddata() {
 
   async function addData() {
     try {
-      const docRef = await addDoc(collection(db, "data"), {
+      const docRef = await db.collection("data").add ({
         borndate: borndate,      
         id: id,            
         name: name,           
