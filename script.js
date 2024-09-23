@@ -13,7 +13,7 @@ const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 
-let isLoggedIn = false
+let isLoggedIn = true
 let container = document.getElementById('container');
 
 function loginregisterPage() {
@@ -32,7 +32,7 @@ function loginregisterPage() {
   }
 }
 
-loginregisterPage()
+//loginregisterPage()
 
 
 function landingPage() {
@@ -139,10 +139,6 @@ function login() {
   });
 }
 
-
-
-
-
 function opendatabase() {
   container.innerHTML = ' '
   container.innerHTML += `
@@ -156,6 +152,7 @@ function opendatabase() {
         <td><u>Társadalom biztosítás</u></td>
       </tr>
     </table>
+    
   `
   const databasetable = document.getElementById('databasetable');
   const dataRef = db.collection('data'); 
@@ -186,6 +183,8 @@ function opendatabase() {
         <td>${tb}</td>
       </tr>
       `
+      const buttonadddatabase = document.getElementById("buttonadddatabase")
+      buttonadddatabase.addEventListener("click", openadddata)
     })
   })
   .catch((error) =>{
@@ -193,3 +192,30 @@ function opendatabase() {
   });
 }
 
+
+function openadddata() {
+  let id = prompt("ID")
+  let name = prompt("Név")
+  let borndate = prompt("Születési Dátum")
+  let phonenum = prompt("Telefonszám")
+  let pchyho = prompt("Pszchiológiai vizsga")
+  let tb = prompt("TB")
+
+  async function addData() {
+    try {
+      const docRef = await addDoc(collection(db, "data"), {
+        borndate: borndate,      
+        id: id,            
+        name: name,           
+        pchyho: pchyho,         
+        phonenum: phonenum,
+        tb: tb      
+      });
+      console.log("Dokumentum sikeresen hozzáadva, azonosítója: ", docRef.id);
+    } catch (e) {
+      console.error("Hiba az adat hozzáadásakor: ", e);
+    }
+  }
+  
+  addData();
+}

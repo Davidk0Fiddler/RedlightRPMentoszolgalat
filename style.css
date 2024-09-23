@@ -253,6 +253,10 @@ button:hover{
     transform: rotateZ('30');
 }
 
+.container {
+    overflow-y: scroll;
+}
+
 .container .card {
     position: relative;
     width: 200px;
@@ -346,4 +350,13 @@ tr {
 
 td{
     width: 20vw;
+}
+
+#buttonadddatabase {
+    text-shadow: 1px 1px rgba(0,0,0,0.6);
+    text-align: center;
+}
+
+#buttonadddatabase:hover {
+    cursor: pointer;
 }
