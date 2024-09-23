@@ -179,7 +179,7 @@ function opendatabase() {
       databasetable.innerHTML += `
       <tr>
         <td>${checker["id"]}</td>
-        <td>${checker["username"]}</td>
+        <td>${checker["name"]}</td>
         <td>${checker["borndate"]}</td>
         <td>${checker["phonenum"]}</td>
         <td>${pchyho}</td>
