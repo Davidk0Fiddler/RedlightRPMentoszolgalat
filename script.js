@@ -46,11 +46,11 @@ function landingPage() {
 // LOGIN
 
 const selfprofile = {
-  username,
-  password,
-  phonenum,
-  rank,
-  group
+  username: "",
+  password: "",
+  phonenum: "",
+  rank: "",
+  group: ""
 };
 
 
