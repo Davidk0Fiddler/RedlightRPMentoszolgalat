@@ -87,6 +87,7 @@ const selfprofile = {
   rank: "",
   group: ""
 };
+let usernamea = " "
 
 
 
@@ -114,6 +115,7 @@ function login() {
         console.log(usernameChecking, " has logged in!")
         isLoggedIn = true
         selfprofile["username"] = checker["username"]
+        usernamea = checker["username"]
         selfprofile["password"] = checker["password"]
         selfprofile["phonenum"] = checker["phonenum"]
         selfprofile["rank"] = checker["rank"]
@@ -185,7 +187,7 @@ function opendatabase() {
       </tr>
       `
       const buttonadddatabase = document.getElementById("buttonadddatabase")
-      if (selfprofile["rank"] == 'foorvos'){
+      if (usernamea == "Dr. Zsákos Bilbó"){
         console.log("asd")
         buttonadddatabase.addEventListener("click", openadddata)
       }
