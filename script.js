@@ -1,3 +1,6 @@
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+
 const firebaseConfig = {
   apiKey: "AIzaSyDlBNYQBLuCUD7aLUzOGuvF3naiyGWN9Uo",
   authDomain: "redlightmentoszolgalatdatabase.firebaseapp.com",
@@ -11,7 +14,6 @@ const firebaseConfig = {
 
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 
 let isLoggedIn = false
