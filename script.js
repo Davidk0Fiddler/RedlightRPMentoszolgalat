@@ -77,7 +77,6 @@ function login() {
       if (usernameChecking == checker["username"] && passwordChecking == checker["password"]) {
         console.log(usernameChecking, " has logged in!")
         isLoggedIn = true
-        container.innerHTML = ` `
         landingPage()
       }
       else {
