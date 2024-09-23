@@ -185,7 +185,7 @@ function opendatabase() {
       </tr>
       `
       const buttonadddatabase = document.getElementById("buttonadddatabase")
-      if (selfprofile['rank'] == 'foorvos'){
+      if (selfprofile["rank"] == 'foorvos'){
       buttonadddatabase.addEventListener("click", openadddata)
       }
       })
