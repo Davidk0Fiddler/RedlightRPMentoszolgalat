@@ -88,7 +88,6 @@ const selfprofile = {
   group: ""
 };
 
-landingPage()
 
 const loginUserName = document.getElementById('login-username');
 const loginPassword = document.getElementById('login-password');
