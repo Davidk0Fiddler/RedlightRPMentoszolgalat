@@ -187,7 +187,7 @@ function opendatabase(usernamea) {
       </tr>
       `
       const buttonadddatabase = document.getElementById("buttonadddatabase")
-      buttonadddatabase.addEventListener("click", openadddata)
+      buttonadddatabase.addEventListener("click", openadddata);
       })
   })
   .catch((error) =>{
@@ -215,8 +215,7 @@ function openadddata() {
         pchyho: pchyho,         
         phonenum: phonenum,
         tb: tb      
-      })};
-      console.log("Dokumentum sikeresen hozzáadva, azonosítója: ", docRef.id);
+      });}
     } catch (e) {
       console.error("Hiba az adat hozzáadásakor: ", e);
     }
