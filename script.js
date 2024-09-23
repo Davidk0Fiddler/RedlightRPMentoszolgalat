@@ -13,7 +13,7 @@ const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 
-let isLoggedIn = true
+let isLoggedIn = false
 let container = document.getElementById('container');
 
 function loginregisterPage() {
