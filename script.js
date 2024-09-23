@@ -142,6 +142,7 @@ function login() {
 function opendatabase() {
   container.innerHTML = ' '
   container.innerHTML += `
+    <div id="buttonadddatabase"> Dokumentum hozzáadása </div>
     <table id='databasetable'>
       <tr>
         <td><u>Azonosító</u></td>
