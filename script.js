@@ -13,7 +13,7 @@ const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 
-let isLoggedIn = true
+let isLoggedIn = false
 let container = document.getElementById('container');
 
 function loginregisterPage() {
@@ -32,7 +32,7 @@ function loginregisterPage() {
   }
 }
 
-//loginregisterPage()
+loginregisterPage()
 
 
 function landingPage() {
@@ -94,7 +94,7 @@ const loginUserName = document.getElementById('login-username');
 const loginPassword = document.getElementById('login-password');
 const loginSubmit= document.getElementById('login-submit');
 
-//loginSubmit.addEventListener("click", login);
+loginSubmit.addEventListener("click", login);
 
 function login() {
 
