@@ -141,7 +141,7 @@ function login() {
   });
 }
 
-function opendatabase() {
+function opendatabase(usernamea) {
   container.innerHTML = ' '
   container.innerHTML += `
     <div id="buttonadddatabase"> Dokumentum hozzáadása </div>
