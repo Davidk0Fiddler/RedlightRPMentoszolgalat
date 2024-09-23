@@ -28,7 +28,6 @@ function loginregisterPage() {
       
       <button id="login-submit">Bejelentkezés</button>
   
-      <button id="login-register">Regisztráció</button>
     </div>`
   }
 }
@@ -36,9 +35,23 @@ function loginregisterPage() {
 loginregisterPage()
 
 
+function landingPage() {
+  container.innerHTML = ` `
+  container.innerHTML += ` 
+    <h1> Hello! ${selfprofile["username"]} </h1>  
+  `
+}
+
 
 // LOGIN
 
+const selfprofile = {
+  username,
+  password,
+  phonenum,
+  rank,
+  group
+};
 
 
 const loginUserName = document.getElementById('login-username');
@@ -65,6 +78,7 @@ function login() {
         console.log(usernameChecking, " has logged in!")
         isLoggedIn = true
         container.innerHTML = ` `
+        landingPage()
       }
       else {
         alert("A bejelentkezés sikertelen!");
