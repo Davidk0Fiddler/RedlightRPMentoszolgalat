@@ -11,6 +11,7 @@ const firebaseConfig = {
 
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 
 let isLoggedIn = false
