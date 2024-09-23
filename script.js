@@ -77,6 +77,12 @@ function login() {
       if (usernameChecking == checker["username"] && passwordChecking == checker["password"]) {
         console.log(usernameChecking, " has logged in!")
         isLoggedIn = true
+        selfprofile["username"] = checker["username"]
+        selfprofile["password"] = checker["password"]
+        selfprofile["phonenum"] = checker["phonenum"]
+        selfprofile["rank"] = checker["rank"]
+        selfprofile["group"] = checker["group"]
+
         landingPage()
       }
       else {
