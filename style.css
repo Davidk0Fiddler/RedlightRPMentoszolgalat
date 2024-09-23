@@ -335,3 +335,15 @@ button:hover{
     justify-content: space-evenly;
     margin-top: 20vh;
 }
+
+table {
+    margin-left: 50px;
+}
+
+tr {
+    width: 100%;
+}
+
+td{
+    width: 20vw;
+}

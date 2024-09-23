@@ -13,7 +13,7 @@ const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 
-let isLoggedIn = false
+let isLoggedIn = true
 let container = document.getElementById('container');
 
 function loginregisterPage() {
@@ -32,7 +32,7 @@ function loginregisterPage() {
   }
 }
 
-loginregisterPage()
+//loginregisterPage()
 
 
 function landingPage() {
@@ -40,7 +40,7 @@ function landingPage() {
   container.innerHTML += ` 
     <h1 style="text-align: center"> Üdvözlünk ${selfprofile["username"]}!</h1>  
     <div id="landingpage">
-      <div class="card">
+      <div class="card" id="card1">
         <div class="imgBx">
           <img src="https://images.pexels.com/photos/3861976/pexels-photo-3861976.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
         </div>
@@ -51,7 +51,7 @@ function landingPage() {
 
         </div>
       </div>
-      <div class="card">
+      <div class="card" id="card2">
         <div class="imgBx">
           <img src="https://images.pexels.com/photos/28541805/pexels-photo-28541805/free-photo-of-vintage-konyvtari-konyvespolc-tele-antik-konyvekkel.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
         </div>
@@ -62,7 +62,7 @@ function landingPage() {
 
         </div>
       </div>
-      <div class="card">
+      <div class="card" id="card3">
         <div class="imgBx">
           <img src="https://images.pexels.com/photos/5561909/pexels-photo-5561909.jpeg?auto=compress&cs=tinysrgb&w=600">
         </div>
@@ -81,7 +81,7 @@ function landingPage() {
 // LOGIN
 
 const selfprofile = {
-  username: "a",
+  username: "",
   password: "",
   phonenum: "",
   rank: "",
@@ -89,11 +89,12 @@ const selfprofile = {
 };
 
 
+
 const loginUserName = document.getElementById('login-username');
 const loginPassword = document.getElementById('login-password');
 const loginSubmit= document.getElementById('login-submit');
 
-loginSubmit.addEventListener("click", login);
+//loginSubmit.addEventListener("click", login);
 
 function login() {
 
@@ -132,3 +133,62 @@ function login() {
     alert("A bejelentkezés sikertelen, rendszerhiba miatt: "+ error);
   });
 }
+landingPage()
+
+const card1 = document.getElementById('card1');
+const card2 = document.getElementById('card2');
+const card3 = document.getElementById('card3');
+
+
+card1.addEventListener("click", opendatabase);
+
+function opendatabase() {
+  container.innerHTML = ' '
+  container.innerHTML += `
+    <table id='databasetable'>
+      <tr>
+        <td><u>Azonosító</u></td>
+        <td><u>Név</u></td>
+        <td><u>Születési dátum</u></td>
+        <td><u>Telefonszám</u></td>
+        <td><u>Pchiológiai vizsgálat</u></td>
+        <td><u>Társadalom biztosítás</u></td>
+      </tr>
+    </table>
+  `
+  const databasetable = document.getElementById('databasetable');
+  const dataRef = db.collection('data'); 
+  dataRef.get()
+  .then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      let checker = doc.data()
+      let pchyho = ""
+      let tb = ""
+      if (checker["pchyho"] == true) {
+        pchyho = "Van"
+      } else {
+        pchyho = "Nincs"
+      }
+
+      if (checker["tb"] == true) {
+        tb = "Van"
+      } else {
+        tb = "Nincs"
+      }
+      databasetable.innerHTML += `
+      <tr>
+        <td>${checker["id"]}</td>
+        <td>${checker["username"]}</td>
+        <td>${checker["borndate"]}</td>
+        <td>${checker["phonenum"]}</td>
+        <td>${pchyho}</td>
+        <td>${tb}</td>
+      </tr>
+      `
+    })
+  })
+  .catch((error) =>{
+    alert("A táblázat feltöltése sikertelen: "+ error);
+  });
+}
+
