@@ -1,6 +1,3 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
-
 const firebaseConfig = {
   apiKey: "AIzaSyDlBNYQBLuCUD7aLUzOGuvF3naiyGWN9Uo",
   authDomain: "redlightmentoszolgalatdatabase.firebaseapp.com",
