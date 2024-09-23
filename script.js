@@ -187,10 +187,7 @@ function opendatabase(usernamea) {
       </tr>
       `
       const buttonadddatabase = document.getElementById("buttonadddatabase")
-      if (usernamea == "Dr. Zsákos Bilbó"){
-        console.log("asd")
-        buttonadddatabase.addEventListener("click", openadddata)
-      }
+      buttonadddatabase.addEventListener("click", openadddata)
       })
   })
   .catch((error) =>{
@@ -207,8 +204,10 @@ function openadddata() {
   let pchyho = prompt("Pszchiológiai vizsga")
   let tb = prompt("TB")
 
+  let foorvos = selfprofile["rank"]
   async function addData() {
     try {
+      if (foorvos == "foorvos"){
       const docRef = await db.collection("data").add ({
         borndate: borndate,      
         id: id,            
@@ -216,7 +215,7 @@ function openadddata() {
         pchyho: pchyho,         
         phonenum: phonenum,
         tb: tb      
-      });
+      })};
       console.log("Dokumentum sikeresen hozzáadva, azonosítója: ", docRef.id);
     } catch (e) {
       console.error("Hiba az adat hozzáadásakor: ", e);
