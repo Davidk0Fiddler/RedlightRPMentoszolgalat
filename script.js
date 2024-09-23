@@ -13,7 +13,7 @@ const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 
-let isLoggedIn = true
+let isLoggedIn = false
 let container = document.getElementById('container');
 
 function loginregisterPage() {
@@ -32,7 +32,7 @@ function loginregisterPage() {
   }
 }
 
-//loginregisterPage()
+loginregisterPage()
 
 
 function landingPage() {
@@ -184,8 +184,9 @@ function opendatabase() {
       </tr>
       `
       const buttonadddatabase = document.getElementById("buttonadddatabase")
+      if selfprofile["username"] == "Dr. Zsákos Bilbó" {
       buttonadddatabase.addEventListener("click", openadddata)
-    })
+      }})
   })
   .catch((error) =>{
     alert("A táblázat feltöltése sikertelen: "+ error);
