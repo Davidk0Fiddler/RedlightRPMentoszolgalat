@@ -128,10 +128,6 @@ function login() {
         card1.addEventListener("click", opendatabase);
 
       }
-
-
-
-
     })
   })
   .catch((error) =>{
@@ -201,11 +197,27 @@ function openadddata() {
   let phonenum = prompt("Telefonszám")
   let pchyho = prompt("Pszchiológiai vizsga")
   let tb = prompt("TB")
-
+  let foundsame = false
   let foorvos = selfprofile["rank"]
+
+  const dataRef = db.collection('data'); 
+  dataRef.get()
+  .then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      let checker = doc.data()
+
+      if (checker["id"] == id) {
+        foundsame = true
+      }
+    })
+  })
+  .catch(() =>{
+  });
+
+
   async function addData() {
     try {
-      if (foorvos == "foorvos"){
+      if (foorvos == "foorvos" && foundsame == false ){
       const docRef = await db.collection("data").add ({
         borndate: borndate,      
         id: id,            
