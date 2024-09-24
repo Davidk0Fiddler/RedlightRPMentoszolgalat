@@ -102,7 +102,6 @@ function login() {
 
   let usernameChecking = loginUserName.value;
   let passwordChecking = loginPassword.value;
-  let grouphere = group
   console.log(usernameChecking, passwordChecking)
 
 
@@ -121,13 +120,14 @@ function login() {
         selfprofile["phonenum"] = checker["phonenum"]
         selfprofile["rank"] = checker["rank"]
         selfprofile["group"] = checker["group"]
-        group = checker["gorup"]
+        group = checker["group"]
 
         landingPage()
         const card1 = document.getElementById('card1');
         const card2 = document.getElementById('card2');
         const card3 = document.getElementById('card3');
         card1.addEventListener("click", opendatabase);
+        let grouphere = group
 
         if (grouphere == "mento") {
           card2.addEventListener("onclick", opendocumentation);
