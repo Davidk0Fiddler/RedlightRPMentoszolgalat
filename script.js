@@ -87,7 +87,8 @@ const selfprofile = {
   rank: "",
   group: ""
 };
-let usernamea = " "
+let usernamea = " ";
+let group = " ";
 
 
 
@@ -101,7 +102,7 @@ function login() {
 
   let usernameChecking = loginUserName.value;
   let passwordChecking = loginPassword.value;
-
+  let grouphere = group
   console.log(usernameChecking, passwordChecking)
 
 
@@ -120,12 +121,18 @@ function login() {
         selfprofile["phonenum"] = checker["phonenum"]
         selfprofile["rank"] = checker["rank"]
         selfprofile["group"] = checker["group"]
+        group = checker["gorup"]
 
         landingPage()
         const card1 = document.getElementById('card1');
         const card2 = document.getElementById('card2');
         const card3 = document.getElementById('card3');
         card1.addEventListener("click", opendatabase);
+
+        if (grouphere == "mento") {
+          card2.addEventListener("onclick", opendocumentation)
+
+        }
 
       }
 
@@ -136,6 +143,10 @@ function login() {
   .catch((error) =>{
     alert("A bejelentkezés sikertelen, rendszerhiba miatt: "+ error);
   });
+}
+
+function opendocumentation() {
+  console.log("Documentation opened!")
 }
 
 function opendatabase(usernamea) {
