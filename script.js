@@ -153,9 +153,10 @@ function opendatabase(usernamea) {
   `
   let databasetable = document.getElementById('databasetable');
   const dataRef = db.collection('data'); 
+  let datalist = []
+
   dataRef.get()
   .then((querySnapshot) => {
-    let datalist = []
     querySnapshot.forEach((doc) => {
       let checker = doc.data()
       let pchyho = ""
