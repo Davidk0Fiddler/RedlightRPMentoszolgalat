@@ -130,9 +130,7 @@ function login() {
         card1.addEventListener("click", opendatabase);
         let grouphere = group
         if (grouphere == "mento") {
-          card2.addEventListener("onclick", opendocumentation);
-          console.log("Documentation opened!")
-
+          card2.addEventListener("click", opendocumentation);
         }
 
       }
