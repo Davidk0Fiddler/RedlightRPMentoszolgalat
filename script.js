@@ -151,7 +151,7 @@ function opendatabase(usernamea) {
     </table>
     
   `
-  const databasetable = document.getElementById('databasetable');
+  let databasetable = document.getElementById('databasetable');
   const dataRef = db.collection('data'); 
   dataRef.get()
   .then((querySnapshot) => {
