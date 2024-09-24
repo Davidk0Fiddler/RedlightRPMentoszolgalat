@@ -360,3 +360,11 @@ td{
 #buttonadddatabase:hover {
     cursor: pointer;
 }
+
+#backtolandingpage 
+{
+    position: absolute;
+    float: right;
+    font-size: 30px;
+    color: black;
+}

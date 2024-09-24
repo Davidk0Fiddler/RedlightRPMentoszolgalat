@@ -128,9 +128,11 @@ function login() {
         const card2 = document.getElementById('card2');
         const card3 = document.getElementById('card3');
         card1.addEventListener("click", opendatabase);
-        let grouphere = group
+
         if (grouphere == "mento") {
-          card2.addEventListener("click", opendocumentation);
+          card2.addEventListener("onclick", opendocumentation);
+          console.log("Documentation opened!")
+
         }
 
       }
@@ -151,6 +153,7 @@ function opendocumentation() {
 function opendatabase(usernamea) {
   container.innerHTML = ' '
   container.innerHTML += `
+    <div id="backtolandingpage"> Vissza </div>
     <div id="buttonadddatabase"> Dokumentum hozzáadása </div>
     <table id='databasetable'>
       <tr>
@@ -195,6 +198,10 @@ function opendatabase(usernamea) {
       `
       const buttonadddatabase = document.getElementById("buttonadddatabase")
       buttonadddatabase.addEventListener("click", openadddata);
+
+      document.getElementById("backtolandingpage").addEventListener("click", function() {
+        landingPage()
+      })
       })
   })
   .catch((error) =>{
