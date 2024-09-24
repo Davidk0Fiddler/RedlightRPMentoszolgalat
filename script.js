@@ -128,7 +128,7 @@ function login() {
         const card2 = document.getElementById('card2');
         const card3 = document.getElementById('card3');
         card1.addEventListener("click", opendatabase);
-
+        let grouphere = group
         if (grouphere == "mento") {
           card2.addEventListener("onclick", opendocumentation);
           console.log("Documentation opened!")
