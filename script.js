@@ -155,6 +155,7 @@ function opendatabase(usernamea) {
   const dataRef = db.collection('data'); 
   dataRef.get()
   .then((querySnapshot) => {
+    let datalist = []
     querySnapshot.forEach((doc) => {
       let checker = doc.data()
       let pchyho = ""
@@ -170,18 +171,27 @@ function opendatabase(usernamea) {
       } else {
         tb = "Nincs"
       }
-      databasetable.innerHTML += `
-      <tr>
-        <td>${checker["id"]}</td>
-        <td>${checker["name"]}</td>
-        <td>${checker["borndate"]}</td>
-        <td>${checker["phonenum"]}</td>
-        <td>${pchyho}</td>
-        <td>${tb}</td>
-      </tr>
-      `
+      datalist.push(checker)
+      
+      
       const buttonadddatabase = document.getElementById("buttonadddatabase")
       buttonadddatabase.addEventListener("click", openadddata);
+      })
+      datalist.sort((a, b) => {
+        return a.name.localeCompare(b.name);
+      });
+
+      datalist.forEach(a => {
+        databasetable += `
+        <tr>
+        <td>${a.id}</td>
+        <td>${a.name}</td>
+        <td>${a.borndate}</td>
+        <td>${a.phonenum}</td>
+        <td>${a.pchyho}</td>
+        <td>${a.tb}</td>
+        </tr>
+        `
       })
   })
   .catch((error) =>{
@@ -199,21 +209,6 @@ function openadddata() {
   let tb = prompt("TB")
   let foundsame = false
   let foorvos = selfprofile["rank"]
-
-  const dataRef = db.collection('data'); 
-  dataRef.get()
-  .then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-      let checker = doc.data()
-
-      if (checker["id"] == id) {
-        foundsame = true
-      }
-    })
-  })
-  .catch(() =>{
-  });
-
 
   async function addData() {
     try {
