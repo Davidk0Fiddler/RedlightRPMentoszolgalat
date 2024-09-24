@@ -128,6 +128,9 @@ function login() {
         card1.addEventListener("click", opendatabase);
 
       }
+
+
+
     })
   })
   .catch((error) =>{
@@ -151,10 +154,8 @@ function opendatabase(usernamea) {
     </table>
     
   `
-  let databasetable = document.getElementById('databasetable');
+  const databasetable = document.getElementById('databasetable');
   const dataRef = db.collection('data'); 
-  let datalist = []
-
   dataRef.get()
   .then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
@@ -172,27 +173,18 @@ function opendatabase(usernamea) {
       } else {
         tb = "Nincs"
       }
-      datalist.push(checker)
-      
-      
+      databasetable.innerHTML += `
+      <tr>
+        <td>${checker["id"]}</td>
+        <td>${checker["name"]}</td>
+        <td>${checker["borndate"]}</td>
+        <td>${checker["phonenum"]}</td>
+        <td>${pchyho}</td>
+        <td>${tb}</td>
+      </tr>
+      `
       const buttonadddatabase = document.getElementById("buttonadddatabase")
       buttonadddatabase.addEventListener("click", openadddata);
-      })
-      datalist.sort((a, b) => {
-        return a.name.localeCompare(b.name);
-      });
-
-      datalist.forEach(a => {
-        databasetable += `
-        <tr>
-        <td>${a.id}</td>
-        <td>${a.name}</td>
-        <td>${a.borndate}</td>
-        <td>${a.phonenum}</td>
-        <td>${a.pchyho}</td>
-        <td>${a.tb}</td>
-        </tr>
-        `
       })
   })
   .catch((error) =>{
@@ -208,12 +200,11 @@ function openadddata() {
   let phonenum = prompt("Telefonszám")
   let pchyho = prompt("Pszchiológiai vizsga")
   let tb = prompt("TB")
-  let foundsame = false
-  let foorvos = selfprofile["rank"]
 
+  let foorvos = selfprofile["rank"]
   async function addData() {
     try {
-      if (foorvos == "foorvos" && foundsame == false ){
+      if (foorvos == "foorvos"){
       const docRef = await db.collection("data").add ({
         borndate: borndate,      
         id: id,            
