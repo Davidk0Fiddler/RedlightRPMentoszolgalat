@@ -128,9 +128,7 @@ function login() {
         card1.addEventListener("click", opendatabase);
 
       }
-      else {
-        alert("A bejelentkezés sikertelen!");
-      }
+
 
 
 
