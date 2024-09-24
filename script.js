@@ -75,6 +75,14 @@ function landingPage() {
       </div>
     </div>
     `
+  const card1 = document.getElementById('card1');
+  const card2 = document.getElementById('card2');
+  const card3 = document.getElementById('card3');
+  card1.addEventListener("click", opendatabase);
+  let grouphere = group
+  if (grouphere == "mento") {
+    card2.addEventListener("click", opendocumentation);
+  }
 }
 
 
@@ -124,14 +132,7 @@ function login() {
         console.log(group)
 
         landingPage()
-        const card1 = document.getElementById('card1');
-        const card2 = document.getElementById('card2');
-        const card3 = document.getElementById('card3');
-        card1.addEventListener("click", opendatabase);
-        let grouphere = group
-        if (grouphere == "mento") {
-          card2.addEventListener("click", opendocumentation);
-        }
+        
 
       }
 
