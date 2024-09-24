@@ -121,16 +121,18 @@ function login() {
         selfprofile["rank"] = checker["rank"]
         selfprofile["group"] = checker["group"]
         group = checker["group"]
+        console.log(group)
 
         landingPage()
         const card1 = document.getElementById('card1');
         const card2 = document.getElementById('card2');
         const card3 = document.getElementById('card3');
         card1.addEventListener("click", opendatabase);
-        let grouphere = group
 
         if (grouphere == "mento") {
-          card2.addEventListener("click", opendocumentation);
+          card2.addEventListener("onclick", opendocumentation);
+          console.log("Documentation opened!")
+
         }
 
       }
@@ -145,7 +147,7 @@ function login() {
 }
 
 function opendocumentation() {
-  console.log("Documentation opened!")
+  container.innerHTML = ` `
 }
 
 function opendatabase(usernamea) {
